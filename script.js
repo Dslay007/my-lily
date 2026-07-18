@@ -7,6 +7,7 @@ let currentScene = 'landing';
 let uploadedPhotos = [];
 let miniFireworksCanvas = null;
 let miniFireworksCtx = null;
+let experienceStarted = false;  // guard so tap only fires once
 
 // ===== INITIALIZATION =====
 document.addEventListener('DOMContentLoaded', () => {
@@ -16,6 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loadGallery();
     loadTimeline();
     setupCursorTrail();
+    setupLandingTap();  // setup tap/click on landing
 });
 
 // ===== STARS BACKGROUND =====
@@ -76,6 +78,34 @@ function setupCursorTrail() {
 }
 
 // ============================================
+// BACKGROUND MUSIC
+// ============================================
+function playBgMusic(videoId) {
+    const player = document.getElementById('bgMusicPlayer');
+    if (!player) return;
+    // autoplay=1 works after user gesture (tap already triggered this)
+    player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&loop=1&playlist=${videoId}`;
+}
+
+// ===== LANDING TAP SETUP (click + touchstart for mobile) =====
+function setupLandingTap() {
+    const landing = document.getElementById('landing');
+    if (!landing) return;
+
+    function onTap(e) {
+        e.preventDefault();
+        startExperience();
+    }
+
+    // Both click and touchstart for maximum compatibility
+    landing.addEventListener('click', onTap);
+    landing.addEventListener('touchstart', onTap, { passive: false });
+
+    // Also set cursor style
+    landing.style.cursor = 'pointer';
+}
+
+// ============================================
 // SCENE TRANSITIONS
 // ============================================
 function showScreen(id) {
@@ -86,17 +116,24 @@ function showScreen(id) {
 }
 
 function startExperience() {
-    // Button animation
-    const btn = document.getElementById('startBtn');
-    btn.style.transform = 'scale(0.95)';
-    btn.innerHTML = '💌 Membuka...';
+    if (experienceStarted) return;  // prevent double-fire
+    experienceStarted = true;
+
+    // Play music IMMEDIATELY on tap (browser allows autoplay right after user gesture)
+    playBgMusic('0KSOMA3QBU0');  // Girl Like You - Maroon 5
+
+    // Visual feedback on landing
+    const landing = document.getElementById('landing');
+    landing.style.transition = 'opacity 0.5s';
+    landing.style.opacity = '0.7';
 
     setTimeout(() => {
         showScreen('flowerScene');
         startFlowerRain();
         typeFlowerMessage();
-    }, 600);
+    }, 500);
 }
+
 
 // ============================================
 // FLOWER RAIN SCENE
@@ -379,10 +416,11 @@ function startFireworks() {
     // Update countdown
     updateCountdown();
 
-    // Transition to main content after 8 seconds
+    // Transition to main content after 8 seconds & play Girl Like You
     setTimeout(() => {
         cancelAnimationFrame(animId);
         showScreen('mainContent');
+        playBgMusic('0KSOMA3QBU0');  // Girl Like You - Maroon 5
     }, 8000);
 
     window.addEventListener('resize', () => {
@@ -448,7 +486,7 @@ function loadGallery() {
     ];
 
     grid.innerHTML = defaultPhotos.map((photo, i) => `
-        <div class="gallery-item" onclick="openGalleryItem(this)" style="animation-delay: ${i * 0.1}s">
+        <div class="gallery-item" style="animation-delay: ${i * 0.1}s">
             <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;background:${photo.color};font-size:4rem;">
                 ${photo.emoji}
             </div>
@@ -545,6 +583,16 @@ function loadTimeline() {
             <p class="timeline-desc">${event.desc}</p>
         </div>
     `).join('');
+}
+
+// ============================================
+// BACKGROUND MUSIC
+// ============================================
+function playBgMusic(videoId) {
+    const player = document.getElementById('bgMusicPlayer');
+    if (!player) return;
+    // autoplay=1&mute=0 — works after user interaction (tap already happened)
+    player.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0&loop=1&playlist=${videoId}`;
 }
 
 // ============================================

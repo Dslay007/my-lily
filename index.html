@@ -19,18 +19,140 @@
     <!-- ========== LANDING / INTRO SCREEN ========== -->
     <section id="landing" class="screen active">
         <div class="stars-bg" id="starsBg"></div>
-        <div class="landing-content">
-            <div class="heart-container">
-                <div class="heart pulse"></div>
-                <div class="heart pulse delay"></div>
-            </div>
-            <h1 class="landing-title">For You, My Lily</h1>
-            <p class="landing-subtitle">I have something special for you...</p>
-            <button id="startBtn" class="start-btn" onclick="startExperience()">
-                <span class="btn-text">💌 Buka Surat Cinta</span>
-                <span class="btn-glow"></span>
-            </button>
-            <p class="landing-hint">Tap untuk membuka kejutanmu ✨</p>
+
+        <!-- SVG Flower Bouquet Animation -->
+        <div class="flower-bouquet-wrap">
+            <svg id="flowerBouquet" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
+
+                <!-- GRASS blades (back) -->
+                <g class="grass-group">
+                    <path class="grass" d="M60,500 Q55,420 70,380 Q80,340 65,300" />
+                    <path class="grass" d="M340,500 Q345,420 330,380 Q320,340 335,300" />
+                    <path class="grass" d="M30,500 Q25,440 40,400" />
+                    <path class="grass" d="M370,500 Q375,440 360,400" />
+                    <path class="grass" d="M80,500 Q90,450 75,410" />
+                    <path class="grass" d="M320,500 Q310,450 325,410" />
+                </g>
+
+                <!-- === STEM GROUP (whole bouquet grows from root) === -->
+                <g class="bouquet-root">
+
+                    <!-- Center tall stem -->
+                    <g class="stem-center">
+                        <path class="stem-line" d="M200,500 Q198,420 200,360 Q202,300 200,240"/>
+                        <!-- leaf left -->
+                        <path class="leaf" d="M200,380 Q170,360 155,330 Q175,345 200,355" />
+                        <!-- leaf right -->
+                        <path class="leaf" d="M200,360 Q230,340 245,310 Q225,325 200,340" />
+                        <!-- Center big flower -->
+                        <g class="flower flower-center" transform="translate(200,230)">
+                            <circle class="flower-core" cx="0" cy="0" r="16"/>
+                            <ellipse class="petal" cx="0" cy="-30" rx="11" ry="20"/>
+                            <ellipse class="petal" cx="21" cy="-21" rx="11" ry="20" transform="rotate(45)"/>
+                            <ellipse class="petal" cx="30" cy="0" rx="11" ry="20" transform="rotate(90)"/>
+                            <ellipse class="petal" cx="21" cy="21" rx="11" ry="20" transform="rotate(135)"/>
+                            <ellipse class="petal" cx="0" cy="30" rx="11" ry="20" transform="rotate(180)"/>
+                            <ellipse class="petal" cx="-21" cy="21" rx="11" ry="20" transform="rotate(225)"/>
+                            <ellipse class="petal" cx="-30" cy="0" rx="11" ry="20" transform="rotate(270)"/>
+                            <ellipse class="petal" cx="-21" cy="-21" rx="11" ry="20" transform="rotate(315)"/>
+                            <circle class="flower-center-dot" cx="0" cy="0" r="9"/>
+                        </g>
+                    </g>
+
+                    <!-- Left stem -->
+                    <g class="stem-left">
+                        <path class="stem-line" d="M200,500 Q185,445 170,400 Q155,360 145,300"/>
+                        <!-- leaf -->
+                        <path class="leaf" d="M165,390 Q140,375 130,350 Q150,362 167,375" />
+                        <!-- Left flower -->
+                        <g class="flower flower-left" transform="translate(142,292)">
+                            <ellipse class="petal" cx="0" cy="-24" rx="9" ry="17"/>
+                            <ellipse class="petal" cx="17" cy="-17" rx="9" ry="17" transform="rotate(45)"/>
+                            <ellipse class="petal" cx="24" cy="0" rx="9" ry="17" transform="rotate(90)"/>
+                            <ellipse class="petal" cx="17" cy="17" rx="9" ry="17" transform="rotate(135)"/>
+                            <ellipse class="petal" cx="0" cy="24" rx="9" ry="17" transform="rotate(180)"/>
+                            <ellipse class="petal" cx="-17" cy="17" rx="9" ry="17" transform="rotate(225)"/>
+                            <ellipse class="petal" cx="-24" cy="0" rx="9" ry="17" transform="rotate(270)"/>
+                            <ellipse class="petal" cx="-17" cy="-17" rx="9" ry="17" transform="rotate(315)"/>
+                            <circle class="flower-core" cx="0" cy="0" r="13"/>
+                            <circle class="flower-center-dot" cx="0" cy="0" r="7"/>
+                        </g>
+                    </g>
+
+                    <!-- Right stem -->
+                    <g class="stem-right">
+                        <path class="stem-line" d="M200,500 Q215,445 230,400 Q245,360 255,300"/>
+                        <!-- leaf -->
+                        <path class="leaf" d="M235,390 Q260,375 270,350 Q250,362 233,375" />
+                        <!-- Right flower -->
+                        <g class="flower flower-right" transform="translate(258,292)">
+                            <ellipse class="petal" cx="0" cy="-24" rx="9" ry="17"/>
+                            <ellipse class="petal" cx="17" cy="-17" rx="9" ry="17" transform="rotate(45)"/>
+                            <ellipse class="petal" cx="24" cy="0" rx="9" ry="17" transform="rotate(90)"/>
+                            <ellipse class="petal" cx="17" cy="17" rx="9" ry="17" transform="rotate(135)"/>
+                            <ellipse class="petal" cx="0" cy="24" rx="9" ry="17" transform="rotate(180)"/>
+                            <ellipse class="petal" cx="-17" cy="17" rx="9" ry="17" transform="rotate(225)"/>
+                            <ellipse class="petal" cx="-24" cy="0" rx="9" ry="17" transform="rotate(270)"/>
+                            <ellipse class="petal" cx="-17" cy="-17" rx="9" ry="17" transform="rotate(315)"/>
+                            <circle class="flower-core" cx="0" cy="0" r="13"/>
+                            <circle class="flower-center-dot" cx="0" cy="0" r="7"/>
+                        </g>
+                    </g>
+
+                    <!-- Small bud left -->
+                    <g class="stem-bud-left">
+                        <path class="stem-line thin-stem" d="M200,500 Q175,460 155,430 Q140,405 130,370"/>
+                        <g class="flower flower-bud" transform="translate(127,360)">
+                            <ellipse class="petal" cx="0" cy="-18" rx="7" ry="13"/>
+                            <ellipse class="petal" cx="13" cy="-13" rx="7" ry="13" transform="rotate(45)"/>
+                            <ellipse class="petal" cx="18" cy="0" rx="7" ry="13" transform="rotate(90)"/>
+                            <ellipse class="petal" cx="13" cy="13" rx="7" ry="13" transform="rotate(135)"/>
+                            <ellipse class="petal" cx="0" cy="18" rx="7" ry="13" transform="rotate(180)"/>
+                            <ellipse class="petal" cx="-13" cy="13" rx="7" ry="13" transform="rotate(225)"/>
+                            <ellipse class="petal" cx="-18" cy="0" rx="7" ry="13" transform="rotate(270)"/>
+                            <ellipse class="petal" cx="-13" cy="-13" rx="7" ry="13" transform="rotate(315)"/>
+                            <circle class="flower-core" cx="0" cy="0" r="10"/>
+                            <circle class="flower-center-dot" cx="0" cy="0" r="5"/>
+                        </g>
+                    </g>
+
+                    <!-- Small bud right -->
+                    <g class="stem-bud-right">
+                        <path class="stem-line thin-stem" d="M200,500 Q225,460 245,430 Q260,405 270,370"/>
+                        <g class="flower flower-bud" transform="translate(273,360)">
+                            <ellipse class="petal" cx="0" cy="-18" rx="7" ry="13"/>
+                            <ellipse class="petal" cx="13" cy="-13" rx="7" ry="13" transform="rotate(45)"/>
+                            <ellipse class="petal" cx="18" cy="0" rx="7" ry="13" transform="rotate(90)"/>
+                            <ellipse class="petal" cx="13" cy="13" rx="7" ry="13" transform="rotate(135)"/>
+                            <ellipse class="petal" cx="0" cy="18" rx="7" ry="13" transform="rotate(180)"/>
+                            <ellipse class="petal" cx="-13" cy="13" rx="7" ry="13" transform="rotate(225)"/>
+                            <ellipse class="petal" cx="-18" cy="0" rx="7" ry="13" transform="rotate(270)"/>
+                            <ellipse class="petal" cx="-13" cy="-13" rx="7" ry="13" transform="rotate(315)"/>
+                            <circle class="flower-core" cx="0" cy="0" r="10"/>
+                            <circle class="flower-center-dot" cx="0" cy="0" r="5"/>
+                        </g>
+                    </g>
+
+                </g><!-- end bouquet-root -->
+
+                <!-- Sparkle dots -->
+                <g class="sparkles">
+                    <circle class="sparkle-dot" cx="120" cy="260" r="3"/>
+                    <circle class="sparkle-dot" cx="280" cy="250" r="2.5"/>
+                    <circle class="sparkle-dot" cx="100" cy="340" r="2"/>
+                    <circle class="sparkle-dot" cx="300" cy="320" r="3"/>
+                    <circle class="sparkle-dot" cx="160" cy="200" r="2"/>
+                    <circle class="sparkle-dot" cx="240" cy="195" r="2.5"/>
+                    <circle class="sparkle-dot" cx="200" cy="180" r="2"/>
+                </g>
+
+            </svg>
+        </div>
+
+        <div class="landing-content landing-content-over">
+            <h1>Selamat Anniversary, Lily! ❤️</h1>
+            <p>Berbunga‑bunga hati untukmu, Lily.<br>Semoga selalu bahagia bersama!</p>
+            <p class="landing-hint">✨ Tap di mana saja untuk membuka kejutanmu ✨</p>
         </div>
     </section>
 
@@ -141,6 +263,7 @@
                             <button class="yt-search-btn" onclick="searchYouTube()">🔍 Cari</button>
                         </div>
                         <div class="yt-preset-songs">
+                            <button class="preset-btn active-song" onclick="loadYouTubeVideo('0KSOMA3QBU0')">🎵 Girl Like You - Maroon 5</button>
                             <button class="preset-btn" onclick="loadYouTubeVideo('2Vv-BfVoq4g')">Perfect - Ed
                                 Sheeran</button>
                             <button class="preset-btn" onclick="loadYouTubeVideo('450p7goxZqg')">All of Me - John
@@ -187,6 +310,15 @@
 
     <!-- ===== CURSOR TRAIL (hearts follow mouse) ===== -->
     <div id="cursorTrail"></div>
+
+    <!-- Hidden background music: Girl Like You - Maroon 5 -->
+    <iframe id="bgMusicPlayer"
+        style="display:none;position:fixed;width:1px;height:1px;"
+        src=""
+        frameborder="0"
+        allow="autoplay; encrypted-media"
+        allowfullscreen>
+    </iframe>
 
     <script src="script.js"></script>
 </body>

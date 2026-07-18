@@ -1126,7 +1126,35 @@ body {
         width: 35px;
         height: 35px;
     }
+    /* ==================== Giant Flower Animation ==================== */
+    #giant-flower {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 2px;
+        height: 2px;
+        background: radial-gradient(circle, #ffb6c1 0%, transparent 70%);
+        border-radius: 50%;
+        transform: translate(-50%, -50%) scale(0);
+        animation: giant-bloom 2s ease-out forwards;
+        z-index: 9998;
+    }
+    @keyframes giant-bloom {
+        0% {
+            transform: translate(-50%, -50%) scale(0);
+            opacity: 0.8;
+        }
+        60% {
+            transform: translate(-50%, -50%) scale(5);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(-50%, -50%) scale(8);
+            opacity: 0;
+        }
+    }
 }
+
 
 @media (max-width: 480px) {
     .gallery-grid {
@@ -1161,4 +1189,18 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--primary);
+}
+
+/* Active/featured song button */
+.preset-btn.active-song {
+    background: linear-gradient(135deg, var(--gold), #ff6090);
+    color: #0a0a1a;
+    font-weight: 700;
+    box-shadow: 0 0 16px rgba(255, 215, 0, 0.5);
+    animation: songPulse 2s ease-in-out infinite;
+}
+
+@keyframes songPulse {
+    0%, 100% { box-shadow: 0 0 16px rgba(255, 215, 0, 0.5); }
+    50%       { box-shadow: 0 0 32px rgba(255, 215, 0, 0.9); }
 }
