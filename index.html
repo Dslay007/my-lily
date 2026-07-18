@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💕 For You, My Love 💕</title>
+    <meta name="description" content="A special romantic anniversary surprise for the one I love">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ========== LANDING / INTRO SCREEN ========== -->
+    <section id="landing" class="screen active">
+        <div class="stars-bg" id="starsBg"></div>
+        <div class="landing-content">
+            <div class="heart-container">
+                <div class="heart pulse"></div>
+                <div class="heart pulse delay"></div>
+            </div>
+            <h1 class="landing-title">For You, My Lily</h1>
+            <p class="landing-subtitle">I have something special for you...</p>
+            <button id="startBtn" class="start-btn" onclick="startExperience()">
+                <span class="btn-text">💌 Buka Surat Cinta</span>
+                <span class="btn-glow"></span>
+            </button>
+            <p class="landing-hint">Tap untuk membuka kejutanmu ✨</p>
+        </div>
+    </section>
+
+    <!-- ========== FLOWER RAIN TRANSITION ========== -->
+    <section id="flowerScene" class="screen">
+        <canvas id="flowerCanvas"></canvas>
+        <div class="flower-message">
+            <h2 class="typewriter" id="flowerText"></h2>
+            <p class="flower-sub" id="flowerSub"></p>
+        </div>
+    </section>
+
+    <!-- ========== FIREWORKS SCENE ========== -->
+    <section id="fireworkScene" class="screen">
+        <canvas id="fireworkCanvas"></canvas>
+        <div class="firework-message">
+            <h2 class="anniversary-text glow-text">🎉 Happy Anniversary! 🎉</h2>
+            <p class="anniversary-date" id="anniversaryDate">Our Special Day</p>
+            <div class="countdown-love" id="countdownLove"></div>
+        </div>
+    </section>
+
+    <!-- ========== MAIN CONTENT ========== -->
+    <section id="mainContent" class="screen">
+        <!-- Floating particles background -->
+        <div class="particles-bg" id="particlesBg"></div>
+
+        <!-- Navigation -->
+        <nav class="main-nav" id="mainNav">
+            <a href="#gallery" class="nav-link active" data-section="gallery">📸 Galeri</a>
+            <a href="#timeline" class="nav-link" data-section="timeline">💝 Timeline</a>
+            <a href="#letter" class="nav-link" data-section="letter">💌 Surat</a>
+            <a href="#music" class="nav-link" data-section="music">🎵 Musik</a>
+        </nav>
+
+        <!-- ===== GALLERY SECTION ===== -->
+        <div id="gallery" class="content-section active-section">
+            <h2 class="section-title">📸 Our Memories</h2>
+            <p class="section-desc">Setiap foto menyimpan cerita indah kita bersama</p>
+            <div class="gallery-grid" id="galleryGrid">
+                <!-- Photos will be generated here -->
+            </div>
+            <div class="gallery-upload">
+                <label for="photoUpload" class="upload-btn">
+                    ➕ Tambah Foto Kenangan
+                </label>
+                <input type="file" id="photoUpload" accept="image/*" multiple style="display:none"
+                    onchange="handlePhotoUpload(event)">
+            </div>
+        </div>
+
+        <!-- ===== TIMELINE SECTION ===== -->
+        <div id="timeline" class="content-section">
+            <h2 class="section-title">💝 Our Love Timeline</h2>
+            <p class="section-desc">Perjalanan cinta kita dari awal hingga sekarang</p>
+            <div class="timeline-container" id="timelineContainer">
+                <!-- Timeline items -->
+            </div>
+        </div>
+
+        <!-- ===== LOVE LETTER SECTION ===== -->
+        <div id="letter" class="content-section">
+            <h2 class="section-title">💌 Surat Cinta</h2>
+            <div class="letter-container">
+                <div class="letter-paper">
+                    <div class="letter-header">
+                        <span class="letter-date">18 Juli 2026</span>
+                        <div class="letter-decoration">💕</div>
+                    </div>
+                    <div class="letter-body" id="letterBody">
+                        <p>Sayang...</p>
+                        <p>Terima kasih sudah menjadi bagian terindah dalam hidupku. Setiap hari bersamamu terasa
+                            seperti mimpi yang tak ingin aku bangun darinya.</p>
+                        <p>Kamu adalah alasan di balik setiap senyumku, detak jantuk yang berdegup lebih kencang, dan
+                            alasan mengapa aku percaya bahwa cinta sejati itu nyata.</p>
+                        <p>Di hari anniversary kita ini, aku ingin kamu tahu bahwa aku bersyukur memilikimu. Bukan hanya
+                            hari ini, tapi setiap hari.</p>
+                        <p>Terima kasih untuk setiap tawa, setiap pelukan, dan setiap momen berharga yang kita lalui
+                            bersama. Aku berjanji akan terus menjaga hati ini untukmu.</p>
+                        <p class="letter-closing">Selamanya milikmu,<br>❤️ With all my love ❤️</p>
+                    </div>
+                    <div class="letter-footer">
+                        <div class="letter-seal">💋</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== MUSIC SECTION ===== -->
+        <div id="music" class="content-section">
+            <h2 class="section-title">🎵 Our Song</h2>
+            <p class="section-desc">Lagu yang mengingatkan aku padamu</p>
+            <div class="music-container">
+                <div class="music-player-card">
+                    <div class="vinyl-record" id="vinylRecord">
+                        <div class="vinyl-inner">
+                            <div class="vinyl-label">💿</div>
+                        </div>
+                    </div>
+                    <div class="music-info">
+                        <h3 class="song-title">Our Love Song</h3>
+                        <p class="song-artist">Pilih lagu favoritmu di bawah</p>
+                    </div>
+                    <div class="youtube-player-wrapper">
+                        <div class="yt-search-container">
+                            <input type="text" id="ytSearchInput" class="yt-search-input"
+                                placeholder="Cari lagu di YouTube..." value="Perfect - Ed Sheeran">
+                            <button class="yt-search-btn" onclick="searchYouTube()">🔍 Cari</button>
+                        </div>
+                        <div class="yt-preset-songs">
+                            <button class="preset-btn" onclick="loadYouTubeVideo('2Vv-BfVoq4g')">Perfect - Ed
+                                Sheeran</button>
+                            <button class="preset-btn" onclick="loadYouTubeVideo('450p7goxZqg')">All of Me - John
+                                Legend</button>
+                            <button class="preset-btn" onclick="loadYouTubeVideo('rtOvBOTyX00')">A Thousand Years -
+                                Christina Perri</button>
+                            <button class="preset-btn" onclick="loadYouTubeVideo('lp-EO5I60KA')">Thinking Out Loud - Ed
+                                Sheeran</button>
+                            <button class="preset-btn" onclick="loadYouTubeVideo('nSDgHBxUbVQ')">Photograph - Ed
+                                Sheeran</button>
+                        </div>
+                        <div class="yt-embed-container" id="ytEmbedContainer">
+                            <iframe id="ytPlayer" width="100%" height="300"
+                                src="https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=0&rel=0"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen>
+                            </iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ===== FLOATING ACTION BUTTONS ===== -->
+        <div class="fab-container">
+            <button class="fab" onclick="triggerFireworks()" title="Kembang Api!">🎆</button>
+            <button class="fab" onclick="triggerFlowerRain()" title="Hujan Bunga!">🌸</button>
+            <button class="fab" onclick="triggerHeartExplosion()" title="Ledakan Cinta!">💖</button>
+        </div>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="main-footer">
+            <p>Made with ❤️ just for you</p>
+            <p class="footer-small">Happy Anniversary, My Love 💕</p>
+        </footer>
+    </section>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+        <img id="lightboxImg" src="" alt="Photo">
+    </div>
+
+    <!-- ===== CURSOR TRAIL (hearts follow mouse) ===== -->
+    <div id="cursorTrail"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
