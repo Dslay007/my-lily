@@ -4,12 +4,12 @@
 
 // ===== DATA =====
 const GALLERY = [
-    { emoji: '📸', color: '#ffb3d9', caption: 'Pertama Ketemu', sub: 'Canggung banget!' },
-    { emoji: '🍜', color: '#ffd1dc', caption: 'Makan Bareng', sub: 'Gak berhenti ketawa' },
-    { emoji: '🎮', color: '#e6c8ff', caption: 'Main Game', sub: 'Kamu selalu menang' },
-    { emoji: '🌅', color: '#ffdfba', caption: 'Jalan Santai', sub: 'Deep talk di jalan' },
-    { emoji: '🤪', color: '#c4e0e5', caption: 'Muka Konyol', sub: 'Paling aib nih' },
-    { emoji: '✨', color: '#f3e8ff', caption: 'Hari Ini', sub: 'Makin cantik aja!' }
+    { emoji: '🤣', color: '#ffb3d9', caption: 'Endless Laughs', sub: 'Remember this?' },
+    { emoji: '🍜', color: '#ffd1dc', caption: 'Food Dates', sub: 'Never stop eating' },
+    { emoji: '🎬', color: '#c084fc', caption: 'Movie Night', sub: 'Scary but fun!' },
+    { emoji: '🥺', color: '#ff7c7c', caption: 'Deep Talks', sub: 'Until 3 AM' },
+    { emoji: '🛍️', color: '#ffe4e1', caption: 'Shopping', sub: 'Broke together' },
+    { emoji: '✨', color: '#f3e8ff', caption: 'Today', sub: 'You look gorgeous!' }
 ];
 
 // ===== PROCEDURAL PLANT GENERATION =====
@@ -63,6 +63,34 @@ function generatePlants() {
     }
     plants.sort((a, b) => a.x - b.x + (Math.random() - 0.5) * 8);
     return plants;
+}
+
+// ===== PROCEDURAL BUTTERFLY GENERATION =====
+function generateButterflies() {
+    const container = document.getElementById('butterfliesContainer');
+    if (!container) return;
+    
+    const count = 12; // 6 left, 6 right
+    for (let i = 0; i < count; i++) {
+        const b = document.createElement('div');
+        b.className = 'butterfly ' + (i % 2 === 0 ? 'left' : 'right');
+        b.innerHTML = '🦋';
+        
+        // Randomize size, position, duration, and delay
+        const size = (1.5 + Math.random() * 2).toFixed(1) + 'rem'; // 1.5rem to 3.5rem
+        const top = (10 + Math.random() * 70).toFixed(0) + '%'; // 10% to 80% top
+        const duration = (12 + Math.random() * 15).toFixed(1) + 's'; // 12s to 27s
+        
+        // Let them start immediately or with slight delay so they gerudukan
+        const delay = (Math.random() * -20).toFixed(1) + 's'; // negative delay means they are already on screen!
+        
+        b.style.fontSize = size;
+        b.style.top = top;
+        b.style.setProperty('--fly-dur', duration);
+        b.style.setProperty('--fly-del', delay);
+        
+        container.appendChild(b);
+    }
 }
 
 function buildFlowerSVG(cfg) {
@@ -153,6 +181,7 @@ function createFlowers() {
     container.innerHTML = '';
 
     const allPlants = generatePlants();
+    generateButterflies();
     allPlants.forEach(cfg => {
         const pos = document.createElement('div');
         pos.className = 'flower-pos';
@@ -198,15 +227,34 @@ function typewriterBirthday() {
         i++;
         if (i >= text.length) {
             clearInterval(twTimer);
+            if (fireworksInterval) {
+                clearInterval(fireworksInterval); // Stop typewriter fireworks
+            }
             titleEl.innerHTML = `<span class="emoji-pop">🎂</span> ${text} <span class="emoji-pop">🎂</span>`;
-            subEl.textContent = 'Semoga harimu seindah bunga-bunga ini...';
+            subEl.textContent = 'May your day be as beautiful as these flowers...';
             subEl.style.opacity = 1;
             setTimeout(() => {
                 document.getElementById('scrollIndicator').classList.add('visible');
                 document.body.classList.remove('locked'); // ALLOW SCROLLING
             }, 1000);
+        } else {
+            // Trigger a firework occasionally during typing
+            if (Math.random() < 0.1) {
+                const x = (Math.random() < 0.5 ? 0.2 : 0.8) * window.innerWidth;
+                const y = (0.2 + Math.random() * 0.4) * window.innerHeight;
+                createFirework(x, y);
+            }
         }
     }, 100);
+    
+    // Also launch fireworks consistently while typing
+    let fireworksInterval = setInterval(() => {
+        if (i < text.length) {
+            const x = (Math.random() < 0.5 ? 0.1 + Math.random() * 0.2 : 0.7 + Math.random() * 0.2) * window.innerWidth;
+            const y = (0.1 + Math.random() * 0.4) * window.innerHeight;
+            createFirework(x, y);
+        }
+    }, 500);
 }
 
 // ===== GALLERY POLAROID GENERATOR =====
@@ -260,11 +308,11 @@ let candleTaps = 0;
 function blowCandle() {
     candleTaps++;
     const inst = document.getElementById('candleInst');
-    if (candleTaps === 1) inst.innerHTML = 'Sekali lagi! <span class="emoji-pop">💨</span>';
-    else if (candleTaps === 2) inst.innerHTML = 'Satu tarikan napas lagi! <span class="emoji-pop">🌬️</span>';
+    if (candleTaps === 1) inst.innerHTML = 'One more time! <span class="emoji-pop">💨</span>';
+    else if (candleTaps === 2) inst.innerHTML = 'One last breath! <span class="emoji-pop">🌬️</span>';
     else if (candleTaps >= 3) {
         document.getElementById('candleFlame').classList.add('out');
-        inst.innerHTML = 'Yay! Lilinnya mati! <span class="emoji-pop">👏</span>';
+        inst.innerHTML = 'Yay! You did it! <span class="emoji-pop">👏</span>';
         document.getElementById('candleWrapper').style.pointerEvents = 'none';
         
         // Unlock scroll
@@ -341,7 +389,7 @@ function initScratch() {
     ctx.font = '20px sans-serif';
     ctx.fillStyle = '#dcdcdc';
     ctx.textAlign = 'center';
-    ctx.fillText('Gosok di sini', cw/2, ch/2);
+    ctx.fillText('Scratch here', cw/2, ch/2);
 
     let isDrawing = false;
     let scratchProgress = 0;
@@ -396,32 +444,21 @@ function typewriteBuildup() {
             i++;
             
             let currentSpeed = baseSpeed;
-            if (char === '.') currentSpeed = 400;
-            else if (char === '\n') currentSpeed = 800;
+            if (char === '.') {
+                currentSpeed = 400;
+            } else if (char === '\n') {
+                currentSpeed = 800;
+            }
             
             setTimeout(typeWriter, currentSpeed);
         } else {
             setTimeout(() => {
-                unlockScroll('buildup');
-            }, 1500);
+                document.getElementById('postBuildupContent').style.display = 'block';
+                completedInteractions['buildup'] = true;
+            }, 500);
         }
     }
     typeWriter();
-}
-
-// ===== SHAREABLE CARD =====
-function generateCard() {
-    const btn = document.getElementById('btnGenerateCard');
-    btn.style.display = 'none';
-    
-    const card = document.getElementById('shareableCard');
-    card.classList.remove('hidden');
-    
-    // Animate in
-    setTimeout(() => {
-        card.style.opacity = '1';
-        card.style.transform = 'translateY(0)';
-    }, 100);
 }
 
 // ===== INTERSECTION OBSERVER (Scroll Animations) =====
@@ -439,6 +476,11 @@ function initObserver() {
                 if (section && !section.classList.contains('has-been-locked')) {
                     section.classList.add('has-been-locked');
                     
+                    // Allow normal scrolling for sections with data-no-lock
+                    if (section.getAttribute('data-no-lock') === 'true') {
+                        return; // Do not apply any lock or scrollIntoView
+                    }
+                    
                     const requireId = section.getAttribute('data-require');
                     if (requireId && !completedInteractions[requireId]) {
                         // Lock permanently until the interaction is completed
@@ -446,9 +488,8 @@ function initObserver() {
                         if (scrollLockTimer) clearTimeout(scrollLockTimer);
                         section.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     } else {
-                        // Temp lock scroll for custom duration or 2 seconds when a normal section is revealed
-                        const customDelay = section.getAttribute('data-delay');
-                        const lockDuration = customDelay ? parseInt(customDelay, 10) : 2000;
+                        // Temp lock scroll for 2 seconds when a normal section is revealed
+                        const lockDuration = 2000;
                         
                         isScrollLocked = true;
                         if (scrollLockTimer) clearTimeout(scrollLockTimer);

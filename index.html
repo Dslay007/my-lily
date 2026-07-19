@@ -1,16 +1,20 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎂 Happy Birthday, Lily! 🎂</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,600;1,500&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,600;1,500&family=Quicksand:wght@400;600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <!-- YouTube IFrame API -->
     <script src="https://www.youtube.com/iframe_api"></script>
 </head>
+
 <body class="locked">
-    
+
     <!-- ===== CURSOR TRAIL ===== -->
     <div id="cursorTrail"></div>
 
@@ -19,10 +23,10 @@
         <canvas id="bgCanvas"></canvas>
         <div class="landing-center">
             <div class="landing-icon">🎁</div>
-            <p class="landing-pre">hei, Lily...</p>
-            <h1 class="landing-main">ada sesuatu buat kamu nih <span class="emoji-pop">🤫</span></h1>
+            <p class="landing-pre">hey, Lily...</p>
+            <h1 class="landing-main">I made something for you <span class="emoji-pop">🤫</span></h1>
             <button id="openBtn" class="open-btn" onclick="startExperience()">
-                klik ini dulu buat nyetel lagu hehe 🎵
+                tap here to play the music first 🎵
             </button>
         </div>
     </div>
@@ -30,18 +34,20 @@
     <!-- ===== MAIN CONTENT (SCROLLABLE) ===== -->
     <canvas id="fireworksCanvas"></canvas>
     <main id="mainContent" class="hidden">
-        
+
         <!-- SECTION 1: FLOWER BLOOM -->
         <section id="heroSection" class="scroll-section hero-section">
             <div class="bloom-text">
                 <h1 class="birthday-title" id="birthdayTypewriter"></h1>
                 <p class="birthday-sub" id="birthdaySub"></p>
             </div>
-            
+
             <div class="scroll-indicator" id="scrollIndicator">
-                <div class="scroll-text">Scroll ke bawah ya...</div>
+                <div class="scroll-text">Scroll down gently...</div>
                 <div class="scroll-arrow">⬇</div>
             </div>
+            <div id="butterfliesContainer"></div>
+            
             <div id="flowersContainer" class="flowers-container"></div>
         </section>
 
@@ -49,18 +55,21 @@
         <section class="scroll-section narrative-section">
             <div class="narrative-content reveal">
                 <span class="narrative-icon emoji-pop">💫</span>
-                <h2>Gak Nyangka Ya...</h2>
-                <p>Dari pertemuan random yang rasanya baru kemarin, sampai akhirnya kita bisa sedekat ini.</p>
-                <p>Chat yang awalnya kaku, tiba-tiba jadi obrolan panjang sampai subuh. Ketawa bareng untuk hal-hal yang gak penting, sampai bisa cerita hal paling berat sekalipun.</p>
-                <p>Tanpa sadar, kamu jadi salah satu alasan kenapa hari-hariku terasa jauh lebih baik.</p>
+                <h2>Can You Believe It...</h2>
+                <p>From a random encounter that feels like it was just yesterday, to becoming this close. How did that
+                    even happen?</p>
+                <p>Conversations that started so awkwardly somehow turned into endless late-night talks until dawn.
+                    Laughing together over the most meaningless things, yet also being able to share the heaviest
+                    burdens.</p>
+                <p>Without even realizing it, you became one of the reasons my days feel so much brighter.</p>
             </div>
         </section>
 
         <!-- SECTION 3: GALERI (Polaroid) -->
         <section class="scroll-section gallery-section">
-            <h2 class="section-title reveal"><span class="emoji-pop">📸</span> Momen Kita</h2>
-            <p class="section-subtitle reveal">setiap momen sama kamu itu berharga</p>
-            
+            <h2 class="section-title reveal"><span class="emoji-pop">📸</span> Our Moments</h2>
+            <p class="section-subtitle reveal">every moment with you is a treasure</p>
+
             <div class="polaroid-grid" id="polaroidContainer">
                 <!-- Populated by JS -->
             </div>
@@ -70,8 +79,10 @@
         <section class="scroll-section bridge-section" data-delay="4500">
             <div class="bridge-text reveal">
                 Okay, enough of the cheesy stuff...<br>
-                Are you ready for your surprise? <span class="emoji-pop" style="display:inline-block; animation:bounce 2s infinite;">🎁</span><br>
-                <span style="font-size: 1.5rem; color: var(--text-muted); font-family: var(--font-sans);">keep scrolling down!</span>
+                Are you ready for your surprise? <span class="emoji-pop"
+                    style="display:inline-block; animation:bounce 2s infinite;">🎁</span><br>
+                <span style="font-size: 1.5rem; color: var(--text-muted); font-family: var(--font-sans);">keep scrolling
+                    down!</span>
             </div>
         </section>
 
@@ -79,16 +90,19 @@
         <section class="scroll-section candle-section" id="section-candle" data-require="candle">
             <div class="candle-content reveal">
                 <h2>Make a Wish! <span class="emoji-pop">✨</span></h2>
-                <p class="candle-instruction" id="candleInst">Tap lilinnya 3 kali buat ditiup!</p>
-                
+                <p class="candle-instruction" id="candleInst">Tap the candle 3 times to blow it out!</p>
+
                 <div class="candle-wrapper" id="candleWrapper" onclick="blowCandle()">
                     <div class="candle-flame" id="candleFlame"></div>
                     <div class="candle-stick"></div>
                 </div>
 
-                <div id="giftContainer" class="gift-container hidden" style="margin-top:2rem; animation: floatCapsule 3s infinite ease-in-out;">
+                <div id="giftContainer" class="gift-container hidden"
+                    style="margin-top:2rem; animation: floatCapsule 3s infinite ease-in-out;">
                     <div style="font-size: 5rem; line-height: 1;">🧸💐</div>
-                    <p style="font-size: 1.5rem; color: var(--pink); font-family: var(--font-script); margin-top: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.2);">A virtual hug and flowers just for you!</p>
+                    <p
+                        style="font-size: 1.5rem; color: var(--pink); font-family: var(--font-script); margin-top: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.2);">
+                        A virtual hug and flowers just for you!</p>
                 </div>
             </div>
         </section>
@@ -104,8 +118,8 @@
         <!-- SECTION 4.1: MEMORY FLIP CARDS (NEW MOMENTS SECTION) -->
         <section class="scroll-section flip-section" id="section-flip" data-require="flip">
             <div class="flip-content reveal">
-                <h2>Tebak Kenangan <span class="emoji-pop">🃏</span></h2>
-                <p>Coba tap kartu-kartu di bawah ini buat nge-flip memori kita!</p>
+                <h2>Guess the Memory <span class="emoji-pop">🃏</span></h2>
+                <p>Tap the cards below to flip and reveal our memories!</p>
                 <div class="flip-container">
                     <!-- Card 1 -->
                     <div class="flip-card" onclick="flipCard(this)">
@@ -115,7 +129,7 @@
                             </div>
                             <div class="flip-card-back" style="background:var(--grad-love);">
                                 <span class="emoji-pop" style="font-size:4rem">😂</span>
-                                <p>Hari Paling Ngakak</p>
+                                <p>The Day We Laughed the Hardest</p>
                             </div>
                         </div>
                     </div>
@@ -127,7 +141,7 @@
                             </div>
                             <div class="flip-card-back" style="background:#ffb3d9; color:#333;">
                                 <span class="emoji-pop" style="font-size:4rem">🍝</span>
-                                <p>Makan Bareng Pertama</p>
+                                <p>Our First Meal Together</p>
                             </div>
                         </div>
                     </div>
@@ -139,7 +153,7 @@
                             </div>
                             <div class="flip-card-back" style="background:#c084fc;">
                                 <span class="emoji-pop" style="font-size:4rem">🥺</span>
-                                <p>Deep Talk Subuh</p>
+                                <p>Late Night Deep Talks</p>
                             </div>
                         </div>
                     </div>
@@ -150,8 +164,8 @@
         <!-- SECTION 4.3: SCRATCH CARD -->
         <section class="scroll-section scratch-section" id="section-scratch" data-require="scratch">
             <div class="scratch-content reveal">
-                <h2>Pesan Rahasia <span class="emoji-pop">🎫</span></h2>
-                <p>Gosok areanya buat lihat pesan rahasianya!</p>
+                <h2>Secret Message <span class="emoji-pop">🎫</span></h2>
+                <p>Scratch the area to reveal the hidden message!</p>
                 <div class="scratch-card-container large-scratch">
                     <div class="scratch-secret">
                         <p>Thank you for everything, Lily! ❤️<br>You are amazing!</p>
@@ -162,58 +176,77 @@
         </section>
 
         <!-- SECTION 5: EMOTIONAL BUILDUP -->
-        <section class="scroll-section buildup-section" id="section-buildup" data-require="buildup">
+        <section class="scroll-section buildup-section" id="section-buildup" data-no-lock="true">
             <div class="buildup-content reveal">
-                <div id="buildupTriggerContainer" style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
-                    <p style="color: #fff; font-size: clamp(1.5rem, 4vw, 2.5rem); font-family: var(--font-serif); font-style: italic;">Did you know what I'm most grateful for?</p>
+                <div id="buildupTriggerContainer"
+                    style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+                    <p
+                        style="color: #fff; font-size: clamp(1.5rem, 4vw, 2.5rem); font-family: var(--font-serif); font-style: italic;">
+                        Did you know what I'm most grateful for?</p>
                     <button class="btn" onclick="startBuildup()">Tell Me ✨</button>
                 </div>
                 <h2 id="buildupText" class="buildup-text" style="display: none;"></h2>
             </div>
         </section>
 
+        <div id="postBuildupContent" style="display: none;">
         <!-- SECTION 6: EMOTIONAL LETTER -->
-        <section class="scroll-section letter-section" data-delay="5000">
+        <section class="scroll-section letter-section" data-no-lock="true">
             <div class="letter-reveal-text reveal" style="text-align: center; margin-bottom: 3rem;">
-                <p style="font-family: var(--font-script); font-size: 3rem; color: var(--pink-light); text-shadow: 1px 1px 4px rgba(0,0,0,0.3);">This is a little message from me...</p>
+                <p
+                    style="font-family: var(--font-script); font-size: 3rem; color: var(--pink-light); text-shadow: 1px 1px 4px rgba(0,0,0,0.3);">
+                    This is a little message from me...</p>
             </div>
-            
+
             <div class="letter-paper reveal delay-1">
                 <div class="letter-header">
-                    <span class="letter-date">Hari Spesialmu <span class="emoji-pop">🎂</span></span>
+                    <span class="letter-date">Your Special Day <span class="emoji-pop">🎂</span></span>
                     <div class="letter-decoration"><span class="emoji-pop">🌸</span></div>
                 </div>
                 <div class="letter-body" style="position:relative;">
-                    <div class="sticker sticker-1" style="position:absolute; top:-40px; left:-40px; font-size:4rem; transform:rotate(-15deg); z-index: 10;">🎀</div>
-                    <div class="sticker sticker-2" style="position:absolute; bottom:-30px; right:-40px; font-size:4.5rem; transform:rotate(10deg); z-index: 10;">🧸</div>
-                    <div class="sticker sticker-3" style="position:absolute; top:40%; right:-50px; font-size:3rem; transform:rotate(25deg); z-index: 10;">💌</div>
-                    
+                    <div class="sticker sticker-1"
+                        style="position:absolute; top:-40px; left:-40px; font-size:4rem; transform:rotate(-15deg); z-index: 10;">
+                        🎀</div>
+                    <div class="sticker sticker-2"
+                        style="position:absolute; bottom:-30px; right:-40px; font-size:4.5rem; transform:rotate(10deg); z-index: 10;">
+                        🧸</div>
+                    <div class="sticker sticker-3"
+                        style="position:absolute; top:40%; right:-50px; font-size:3rem; transform:rotate(25deg); z-index: 10;">
+                        💌</div>
+
                     <p>My Dearest Lily,</p>
-                    <p>Happy birthday to the most precious person I know! Has it really been that long since we first met? Time flies so fast, yet every single year, I find myself thanking the universe that you're still here, being the best friend I could ever ask for. You always listen to my endless stories, and your presence alone makes everything feel warmer and safer.</p>
-                    <p>You need to know how genuinely rare you are. Everyone who gets to be a part of your life is insanely lucky, but I consider myself the luckiest. You are so breathtakingly beautiful—inside and out—that I'm pretty sure even Aphrodite, the goddess of beauty herself, would feel shy and insecure if she ever stood next to you. <span class="emoji-pop">🥺💖</span></p>
-                    <p>I want you to know how deeply I cherish you. You deserve every ounce of love, peace, and happiness this world has to offer. On your special day, I hope you realize how much light you bring into the lives of those around you. Please, never feel like you're alone, because I will always be right here in your corner, cheering for you, supporting you, and celebrating you no matter what.</p>
-                    <p>Keep shining, my beautiful Lily. The world is so much better with you in it.</p>
-                    <p class="letter-closing">With all my love,<br><span class="emoji-pop">❤️</span> Your Best Friend <span class="emoji-pop">❤️</span></p>
+                    <p>Happy birthday to the most extraordinary soul I have ever known. I look back at the days before you became a part of my life, and I honestly cannot imagine how I navigated the world without you. You are the kind of person who makes the heavy days feel a little lighter just by being there. Your kindness, your endless patience, and the way you always know exactly what to say when I need comfort are gifts I treasure more than words can express.</p>
+                    <p>You need to know how genuinely rare and beautiful you are, inside and out. Your presence is like a warm embrace, radiating a light that touches everyone around you. I am endlessly grateful that out of all the people in the universe, I get to call you my best friend. You are a true blessing, a masterpiece of a human being, and I want to spend the rest of my days reminding you of how deeply cherished you are.</p>
+                    <p>May this new chapter of your life bring you every ounce of joy, peace, and success you so richly deserve. Promise me you will never forget your worth, and promise me you will never feel alone. I will always be right here standing by your side, cheering the loudest for you, catching you if you stumble, and celebrating every single victory.</p>
+                    <p>Keep shining, my beautiful Lily. The world is immeasurably better because you are in it.</p>
+                    <p class="letter-closing">With all my love and endless appreciation,<br><span class="emoji-pop">❤️</span> Your Best Friend
+                        <span class="emoji-pop">❤️</span></p>
                 </div>
             </div>
         </section>
 
         <!-- SECTION 7: SHAREABLE CARD -->
-        <section class="scroll-section card-section" id="section-card" data-delay="4000" style="background: var(--grad-bg); text-align: center; padding: 5rem 2rem;">
+        <section class="scroll-section card-section" id="section-card" data-no-lock="true"
+            style="background: var(--grad-bg); text-align: center; padding: 5rem 2rem;">
             <div class="card-content reveal">
-                <h2 style="font-family: var(--font-serif); font-size: 3rem; color: var(--pink); margin-bottom: 1rem;">Kartu Spesialmu <span class="emoji-pop">📸</span></h2>
-                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">Generate kartu kenangan ulang tahun ini buat kamu simpan atau share!</p>
+                <h2 style="font-family: var(--font-serif); font-size: 3rem; color: var(--pink); margin-bottom: 1rem;">
+                    Your Special Card <span class="emoji-pop">📸</span></h2>
+                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">This is your card Lily, I made it special for you if you want to share!</p>
                 
-                <button class="btn" onclick="generateCard()" id="btnGenerateCard">Generate Your Card ✨</button>
-                
-                <div id="shareableCard" class="hidden" style="margin-top: 3rem; display: flex; justify-content: center; opacity: 0; transition: opacity 1s, transform 1s; transform: translateY(20px);">
-                    <div class="polaroid" style="margin: 0; transform: rotate(0deg); max-width: 400px; padding: 20px 20px 30px;">
-                        <!-- Ganti URL ini dengan foto asli Lily nantinya -->
-                        <div class="polaroid-img" style="background: url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=500&q=80') center/cover; aspect-ratio: 4/5;"></div>
-                        <div class="polaroid-cap" style="font-size: 1.4rem; line-height: 1.4; margin-top: 15px;">
-                            "This is my special day ever!"<br>
-                            <span style="display: block; font-size: 1rem; color: #777; margin-top: 5px;">🎵 The 1975 - About You</span>
-                            <span style="display: block; font-size: 0.95rem; font-family: var(--font-sans); font-weight: 400; color: #555; margin-top: 10px;">A day full of love, laughter, and endless blessings. Happy birthday to me! 🤍</span>
+                <div id="shareableCard" style="margin-top: 3rem; display: flex; flex-direction: column; align-items: center;">
+                    <div class="horizontal-card">
+                        <div class="horizontal-card-img" style="background-image: url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=500&q=80');"></div>
+                        <div class="horizontal-card-content">
+                            <h3 style="font-family: var(--font-script); font-size: 2.2rem; color: #333; margin-bottom: 10px;">"This is my special day ever!"</h3>
+                            <p style="font-size: 1.1rem; color: #555; line-height: 1.5; margin-bottom: 15px;">A day full of love, laughter, and endless blessings. Happy birthday to me! 🤍</p>
+                            
+                            <div class="song-badge">
+                                <span style="font-size: 1.5rem;">🎵</span>
+                                <div style="display: flex; flex-direction: column; text-align: left;">
+                                    <span style="font-size: 0.9rem; font-weight: bold; color: #333;">About You</span>
+                                    <span style="font-size: 0.8rem; color: #777;">The 1975</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -221,16 +254,15 @@
         </section>
 
         <!-- SECTION 8: FINAL GOODBYE -->
-        <section class="scroll-section final-section" data-delay="3000">
+        <section class="scroll-section final-section" data-no-lock="true">
             <div class="final-words reveal">
                 <p class="final-text">see you in another great day</p>
                 <p class="final-text highlight-end">my beloved friend.</p>
-                <span class="final-emoji emoji-pop">✨🌷💖</span>
+                <div class="heart-pulse">💖</div>
             </div>
         </section>
-
+        </div>
     </main>
-
     <!-- ===== MINI MUSIC PLAYER (persistent) ===== -->
     <div class="mini-player" id="miniPlayer">
         <div class="mini-player-info">
@@ -242,13 +274,15 @@
         </div>
         <div class="mini-player-controls">
             <button class="mini-btn" id="miniPlayPause" onclick="toggleMusic()">⏸</button>
-            <input type="range" class="mini-volume" min="0" max="100" value="70" onchange="changeVolume(this.value)" oninput="changeVolume(this.value)">
+            <input type="range" class="mini-volume" min="0" max="100" value="70" onchange="changeVolume(this.value)"
+                oninput="changeVolume(this.value)">
         </div>
     </div>
-    
+
     <!-- Hidden YT Player -->
     <div id="ytApiPlayer"></div>
 
     <script src="script.js"></script>
 </body>
+
 </html>
