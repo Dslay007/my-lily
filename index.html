@@ -1,326 +1,254 @@
 <!DOCTYPE html>
 <html lang="id">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💕 For You, My Love 💕</title>
-    <meta name="description" content="A special romantic anniversary surprise for the one I love">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Quicksand:wght@300;400;500;600&display=swap"
-        rel="stylesheet">
+    <title>🎂 Happy Birthday, Lily! 🎂</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,600;1,500&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+    <!-- YouTube IFrame API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
 </head>
-
-<body>
-
-    <!-- ========== LANDING / INTRO SCREEN ========== -->
-    <section id="landing" class="screen active">
-        <div class="stars-bg" id="starsBg"></div>
-
-        <!-- SVG Flower Bouquet Animation -->
-        <div class="flower-bouquet-wrap">
-            <svg id="flowerBouquet" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg">
-
-                <!-- GRASS blades (back) -->
-                <g class="grass-group">
-                    <path class="grass" d="M60,500 Q55,420 70,380 Q80,340 65,300" />
-                    <path class="grass" d="M340,500 Q345,420 330,380 Q320,340 335,300" />
-                    <path class="grass" d="M30,500 Q25,440 40,400" />
-                    <path class="grass" d="M370,500 Q375,440 360,400" />
-                    <path class="grass" d="M80,500 Q90,450 75,410" />
-                    <path class="grass" d="M320,500 Q310,450 325,410" />
-                </g>
-
-                <!-- === STEM GROUP (whole bouquet grows from root) === -->
-                <g class="bouquet-root">
-
-                    <!-- Center tall stem -->
-                    <g class="stem-center">
-                        <path class="stem-line" d="M200,500 Q198,420 200,360 Q202,300 200,240"/>
-                        <!-- leaf left -->
-                        <path class="leaf" d="M200,380 Q170,360 155,330 Q175,345 200,355" />
-                        <!-- leaf right -->
-                        <path class="leaf" d="M200,360 Q230,340 245,310 Q225,325 200,340" />
-                        <!-- Center big flower -->
-                        <g class="flower flower-center" transform="translate(200,230)">
-                            <circle class="flower-core" cx="0" cy="0" r="16"/>
-                            <ellipse class="petal" cx="0" cy="-30" rx="11" ry="20"/>
-                            <ellipse class="petal" cx="21" cy="-21" rx="11" ry="20" transform="rotate(45)"/>
-                            <ellipse class="petal" cx="30" cy="0" rx="11" ry="20" transform="rotate(90)"/>
-                            <ellipse class="petal" cx="21" cy="21" rx="11" ry="20" transform="rotate(135)"/>
-                            <ellipse class="petal" cx="0" cy="30" rx="11" ry="20" transform="rotate(180)"/>
-                            <ellipse class="petal" cx="-21" cy="21" rx="11" ry="20" transform="rotate(225)"/>
-                            <ellipse class="petal" cx="-30" cy="0" rx="11" ry="20" transform="rotate(270)"/>
-                            <ellipse class="petal" cx="-21" cy="-21" rx="11" ry="20" transform="rotate(315)"/>
-                            <circle class="flower-center-dot" cx="0" cy="0" r="9"/>
-                        </g>
-                    </g>
-
-                    <!-- Left stem -->
-                    <g class="stem-left">
-                        <path class="stem-line" d="M200,500 Q185,445 170,400 Q155,360 145,300"/>
-                        <!-- leaf -->
-                        <path class="leaf" d="M165,390 Q140,375 130,350 Q150,362 167,375" />
-                        <!-- Left flower -->
-                        <g class="flower flower-left" transform="translate(142,292)">
-                            <ellipse class="petal" cx="0" cy="-24" rx="9" ry="17"/>
-                            <ellipse class="petal" cx="17" cy="-17" rx="9" ry="17" transform="rotate(45)"/>
-                            <ellipse class="petal" cx="24" cy="0" rx="9" ry="17" transform="rotate(90)"/>
-                            <ellipse class="petal" cx="17" cy="17" rx="9" ry="17" transform="rotate(135)"/>
-                            <ellipse class="petal" cx="0" cy="24" rx="9" ry="17" transform="rotate(180)"/>
-                            <ellipse class="petal" cx="-17" cy="17" rx="9" ry="17" transform="rotate(225)"/>
-                            <ellipse class="petal" cx="-24" cy="0" rx="9" ry="17" transform="rotate(270)"/>
-                            <ellipse class="petal" cx="-17" cy="-17" rx="9" ry="17" transform="rotate(315)"/>
-                            <circle class="flower-core" cx="0" cy="0" r="13"/>
-                            <circle class="flower-center-dot" cx="0" cy="0" r="7"/>
-                        </g>
-                    </g>
-
-                    <!-- Right stem -->
-                    <g class="stem-right">
-                        <path class="stem-line" d="M200,500 Q215,445 230,400 Q245,360 255,300"/>
-                        <!-- leaf -->
-                        <path class="leaf" d="M235,390 Q260,375 270,350 Q250,362 233,375" />
-                        <!-- Right flower -->
-                        <g class="flower flower-right" transform="translate(258,292)">
-                            <ellipse class="petal" cx="0" cy="-24" rx="9" ry="17"/>
-                            <ellipse class="petal" cx="17" cy="-17" rx="9" ry="17" transform="rotate(45)"/>
-                            <ellipse class="petal" cx="24" cy="0" rx="9" ry="17" transform="rotate(90)"/>
-                            <ellipse class="petal" cx="17" cy="17" rx="9" ry="17" transform="rotate(135)"/>
-                            <ellipse class="petal" cx="0" cy="24" rx="9" ry="17" transform="rotate(180)"/>
-                            <ellipse class="petal" cx="-17" cy="17" rx="9" ry="17" transform="rotate(225)"/>
-                            <ellipse class="petal" cx="-24" cy="0" rx="9" ry="17" transform="rotate(270)"/>
-                            <ellipse class="petal" cx="-17" cy="-17" rx="9" ry="17" transform="rotate(315)"/>
-                            <circle class="flower-core" cx="0" cy="0" r="13"/>
-                            <circle class="flower-center-dot" cx="0" cy="0" r="7"/>
-                        </g>
-                    </g>
-
-                    <!-- Small bud left -->
-                    <g class="stem-bud-left">
-                        <path class="stem-line thin-stem" d="M200,500 Q175,460 155,430 Q140,405 130,370"/>
-                        <g class="flower flower-bud" transform="translate(127,360)">
-                            <ellipse class="petal" cx="0" cy="-18" rx="7" ry="13"/>
-                            <ellipse class="petal" cx="13" cy="-13" rx="7" ry="13" transform="rotate(45)"/>
-                            <ellipse class="petal" cx="18" cy="0" rx="7" ry="13" transform="rotate(90)"/>
-                            <ellipse class="petal" cx="13" cy="13" rx="7" ry="13" transform="rotate(135)"/>
-                            <ellipse class="petal" cx="0" cy="18" rx="7" ry="13" transform="rotate(180)"/>
-                            <ellipse class="petal" cx="-13" cy="13" rx="7" ry="13" transform="rotate(225)"/>
-                            <ellipse class="petal" cx="-18" cy="0" rx="7" ry="13" transform="rotate(270)"/>
-                            <ellipse class="petal" cx="-13" cy="-13" rx="7" ry="13" transform="rotate(315)"/>
-                            <circle class="flower-core" cx="0" cy="0" r="10"/>
-                            <circle class="flower-center-dot" cx="0" cy="0" r="5"/>
-                        </g>
-                    </g>
-
-                    <!-- Small bud right -->
-                    <g class="stem-bud-right">
-                        <path class="stem-line thin-stem" d="M200,500 Q225,460 245,430 Q260,405 270,370"/>
-                        <g class="flower flower-bud" transform="translate(273,360)">
-                            <ellipse class="petal" cx="0" cy="-18" rx="7" ry="13"/>
-                            <ellipse class="petal" cx="13" cy="-13" rx="7" ry="13" transform="rotate(45)"/>
-                            <ellipse class="petal" cx="18" cy="0" rx="7" ry="13" transform="rotate(90)"/>
-                            <ellipse class="petal" cx="13" cy="13" rx="7" ry="13" transform="rotate(135)"/>
-                            <ellipse class="petal" cx="0" cy="18" rx="7" ry="13" transform="rotate(180)"/>
-                            <ellipse class="petal" cx="-13" cy="13" rx="7" ry="13" transform="rotate(225)"/>
-                            <ellipse class="petal" cx="-18" cy="0" rx="7" ry="13" transform="rotate(270)"/>
-                            <ellipse class="petal" cx="-13" cy="-13" rx="7" ry="13" transform="rotate(315)"/>
-                            <circle class="flower-core" cx="0" cy="0" r="10"/>
-                            <circle class="flower-center-dot" cx="0" cy="0" r="5"/>
-                        </g>
-                    </g>
-
-                </g><!-- end bouquet-root -->
-
-                <!-- Sparkle dots -->
-                <g class="sparkles">
-                    <circle class="sparkle-dot" cx="120" cy="260" r="3"/>
-                    <circle class="sparkle-dot" cx="280" cy="250" r="2.5"/>
-                    <circle class="sparkle-dot" cx="100" cy="340" r="2"/>
-                    <circle class="sparkle-dot" cx="300" cy="320" r="3"/>
-                    <circle class="sparkle-dot" cx="160" cy="200" r="2"/>
-                    <circle class="sparkle-dot" cx="240" cy="195" r="2.5"/>
-                    <circle class="sparkle-dot" cx="200" cy="180" r="2"/>
-                </g>
-
-            </svg>
-        </div>
-
-        <div class="landing-content landing-content-over">
-            <h1>Selamat Anniversary, Lily! ❤️</h1>
-            <p>Berbunga‑bunga hati untukmu, Lily.<br>Semoga selalu bahagia bersama!</p>
-            <p class="landing-hint">✨ Tap di mana saja untuk membuka kejutanmu ✨</p>
-        </div>
-    </section>
-
-    <!-- ========== FLOWER RAIN TRANSITION ========== -->
-    <section id="flowerScene" class="screen">
-        <canvas id="flowerCanvas"></canvas>
-        <div class="flower-message">
-            <h2 class="typewriter" id="flowerText"></h2>
-            <p class="flower-sub" id="flowerSub"></p>
-        </div>
-    </section>
-
-    <!-- ========== FIREWORKS SCENE ========== -->
-    <section id="fireworkScene" class="screen">
-        <canvas id="fireworkCanvas"></canvas>
-        <div class="firework-message">
-            <h2 class="anniversary-text glow-text">🎉 Happy Anniversary! 🎉</h2>
-            <p class="anniversary-date" id="anniversaryDate">Our Special Day</p>
-            <div class="countdown-love" id="countdownLove"></div>
-        </div>
-    </section>
-
-    <!-- ========== MAIN CONTENT ========== -->
-    <section id="mainContent" class="screen">
-        <!-- Floating particles background -->
-        <div class="particles-bg" id="particlesBg"></div>
-
-        <!-- Navigation -->
-        <nav class="main-nav" id="mainNav">
-            <a href="#gallery" class="nav-link active" data-section="gallery">📸 Galeri</a>
-            <a href="#timeline" class="nav-link" data-section="timeline">💝 Timeline</a>
-            <a href="#letter" class="nav-link" data-section="letter">💌 Surat</a>
-            <a href="#music" class="nav-link" data-section="music">🎵 Musik</a>
-        </nav>
-
-        <!-- ===== GALLERY SECTION ===== -->
-        <div id="gallery" class="content-section active-section">
-            <h2 class="section-title">📸 Our Memories</h2>
-            <p class="section-desc">Setiap foto menyimpan cerita indah kita bersama</p>
-            <div class="gallery-grid" id="galleryGrid">
-                <!-- Photos will be generated here -->
-            </div>
-            <div class="gallery-upload">
-                <label for="photoUpload" class="upload-btn">
-                    ➕ Tambah Foto Kenangan
-                </label>
-                <input type="file" id="photoUpload" accept="image/*" multiple style="display:none"
-                    onchange="handlePhotoUpload(event)">
-            </div>
-        </div>
-
-        <!-- ===== TIMELINE SECTION ===== -->
-        <div id="timeline" class="content-section">
-            <h2 class="section-title">💝 Our Love Timeline</h2>
-            <p class="section-desc">Perjalanan cinta kita dari awal hingga sekarang</p>
-            <div class="timeline-container" id="timelineContainer">
-                <!-- Timeline items -->
-            </div>
-        </div>
-
-        <!-- ===== LOVE LETTER SECTION ===== -->
-        <div id="letter" class="content-section">
-            <h2 class="section-title">💌 Surat Cinta</h2>
-            <div class="letter-container">
-                <div class="letter-paper">
-                    <div class="letter-header">
-                        <span class="letter-date">18 Juli 2026</span>
-                        <div class="letter-decoration">💕</div>
-                    </div>
-                    <div class="letter-body" id="letterBody">
-                        <p>Sayang...</p>
-                        <p>Terima kasih sudah menjadi bagian terindah dalam hidupku. Setiap hari bersamamu terasa
-                            seperti mimpi yang tak ingin aku bangun darinya.</p>
-                        <p>Kamu adalah alasan di balik setiap senyumku, detak jantuk yang berdegup lebih kencang, dan
-                            alasan mengapa aku percaya bahwa cinta sejati itu nyata.</p>
-                        <p>Di hari anniversary kita ini, aku ingin kamu tahu bahwa aku bersyukur memilikimu. Bukan hanya
-                            hari ini, tapi setiap hari.</p>
-                        <p>Terima kasih untuk setiap tawa, setiap pelukan, dan setiap momen berharga yang kita lalui
-                            bersama. Aku berjanji akan terus menjaga hati ini untukmu.</p>
-                        <p class="letter-closing">Selamanya milikmu,<br>❤️ With all my love ❤️</p>
-                    </div>
-                    <div class="letter-footer">
-                        <div class="letter-seal">💋</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ===== MUSIC SECTION ===== -->
-        <div id="music" class="content-section">
-            <h2 class="section-title">🎵 Our Song</h2>
-            <p class="section-desc">Lagu yang mengingatkan aku padamu</p>
-            <div class="music-container">
-                <div class="music-player-card">
-                    <div class="vinyl-record" id="vinylRecord">
-                        <div class="vinyl-inner">
-                            <div class="vinyl-label">💿</div>
-                        </div>
-                    </div>
-                    <div class="music-info">
-                        <h3 class="song-title">Our Love Song</h3>
-                        <p class="song-artist">Pilih lagu favoritmu di bawah</p>
-                    </div>
-                    <div class="youtube-player-wrapper">
-                        <div class="yt-search-container">
-                            <input type="text" id="ytSearchInput" class="yt-search-input"
-                                placeholder="Cari lagu di YouTube..." value="Perfect - Ed Sheeran">
-                            <button class="yt-search-btn" onclick="searchYouTube()">🔍 Cari</button>
-                        </div>
-                        <div class="yt-preset-songs">
-                            <button class="preset-btn active-song" onclick="loadYouTubeVideo('0KSOMA3QBU0')">🎵 Girl Like You - Maroon 5</button>
-                            <button class="preset-btn" onclick="loadYouTubeVideo('2Vv-BfVoq4g')">Perfect - Ed
-                                Sheeran</button>
-                            <button class="preset-btn" onclick="loadYouTubeVideo('450p7goxZqg')">All of Me - John
-                                Legend</button>
-                            <button class="preset-btn" onclick="loadYouTubeVideo('rtOvBOTyX00')">A Thousand Years -
-                                Christina Perri</button>
-                            <button class="preset-btn" onclick="loadYouTubeVideo('lp-EO5I60KA')">Thinking Out Loud - Ed
-                                Sheeran</button>
-                            <button class="preset-btn" onclick="loadYouTubeVideo('nSDgHBxUbVQ')">Photograph - Ed
-                                Sheeran</button>
-                        </div>
-                        <div class="yt-embed-container" id="ytEmbedContainer">
-                            <iframe id="ytPlayer" width="100%" height="300"
-                                src="https://www.youtube.com/embed/2Vv-BfVoq4g?autoplay=0&rel=0"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen>
-                            </iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- ===== FLOATING ACTION BUTTONS ===== -->
-        <div class="fab-container">
-            <button class="fab" onclick="triggerFireworks()" title="Kembang Api!">🎆</button>
-            <button class="fab" onclick="triggerFlowerRain()" title="Hujan Bunga!">🌸</button>
-            <button class="fab" onclick="triggerHeartExplosion()" title="Ledakan Cinta!">💖</button>
-        </div>
-
-        <!-- ===== FOOTER ===== -->
-        <footer class="main-footer">
-            <p>Made with ❤️ just for you</p>
-            <p class="footer-small">Happy Anniversary, My Love 💕</p>
-        </footer>
-    </section>
-
-    <!-- ===== LIGHTBOX ===== -->
-    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
-        <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
-        <img id="lightboxImg" src="" alt="Photo">
-    </div>
-
-    <!-- ===== CURSOR TRAIL (hearts follow mouse) ===== -->
+<body class="locked">
+    
+    <!-- ===== CURSOR TRAIL ===== -->
     <div id="cursorTrail"></div>
 
-    <!-- Hidden background music: Girl Like You - Maroon 5 -->
-    <iframe id="bgMusicPlayer"
-        style="display:none;position:fixed;width:1px;height:1px;"
-        src=""
-        frameborder="0"
-        allow="autoplay; encrypted-media"
-        allowfullscreen>
-    </iframe>
+    <!-- ===== LANDING OVERLAY ===== -->
+    <div id="landingOverlay" class="landing-overlay">
+        <canvas id="bgCanvas"></canvas>
+        <div class="landing-center">
+            <div class="landing-icon">🎁</div>
+            <p class="landing-pre">hei, Lily...</p>
+            <h1 class="landing-main">ada sesuatu buat kamu nih <span class="emoji-pop">🤫</span></h1>
+            <button id="openBtn" class="open-btn" onclick="startExperience()">
+                klik ini dulu buat nyetel lagu hehe 🎵
+            </button>
+        </div>
+    </div>
+
+    <!-- ===== MAIN CONTENT (SCROLLABLE) ===== -->
+    <canvas id="fireworksCanvas"></canvas>
+    <main id="mainContent" class="hidden">
+        
+        <!-- SECTION 1: FLOWER BLOOM -->
+        <section id="heroSection" class="scroll-section hero-section">
+            <div class="bloom-text">
+                <h1 class="birthday-title" id="birthdayTypewriter"></h1>
+                <p class="birthday-sub" id="birthdaySub"></p>
+            </div>
+            
+            <div class="scroll-indicator" id="scrollIndicator">
+                <div class="scroll-text">Scroll ke bawah ya...</div>
+                <div class="scroll-arrow">⬇</div>
+            </div>
+            <div id="flowersContainer" class="flowers-container"></div>
+        </section>
+
+        <!-- SECTION 2: PERJALANAN (Narrative) -->
+        <section class="scroll-section narrative-section">
+            <div class="narrative-content reveal">
+                <span class="narrative-icon emoji-pop">💫</span>
+                <h2>Gak Nyangka Ya...</h2>
+                <p>Dari pertemuan random yang rasanya baru kemarin, sampai akhirnya kita bisa sedekat ini.</p>
+                <p>Chat yang awalnya kaku, tiba-tiba jadi obrolan panjang sampai subuh. Ketawa bareng untuk hal-hal yang gak penting, sampai bisa cerita hal paling berat sekalipun.</p>
+                <p>Tanpa sadar, kamu jadi salah satu alasan kenapa hari-hariku terasa jauh lebih baik.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 3: GALERI (Polaroid) -->
+        <section class="scroll-section gallery-section">
+            <h2 class="section-title reveal"><span class="emoji-pop">📸</span> Momen Kita</h2>
+            <p class="section-subtitle reveal">setiap momen sama kamu itu berharga</p>
+            
+            <div class="polaroid-grid" id="polaroidContainer">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+        <!-- BRIDGE 1: BEFORE CANDLE -->
+        <section class="scroll-section bridge-section" data-delay="4500">
+            <div class="bridge-text reveal">
+                Okay, enough of the cheesy stuff...<br>
+                Are you ready for your surprise? <span class="emoji-pop" style="display:inline-block; animation:bounce 2s infinite;">🎁</span><br>
+                <span style="font-size: 1.5rem; color: var(--text-muted); font-family: var(--font-sans);">keep scrolling down!</span>
+            </div>
+        </section>
+
+        <!-- SECTION 4: INTERACTIVE CANDLE -->
+        <section class="scroll-section candle-section" id="section-candle" data-require="candle">
+            <div class="candle-content reveal">
+                <h2>Make a Wish! <span class="emoji-pop">✨</span></h2>
+                <p class="candle-instruction" id="candleInst">Tap lilinnya 3 kali buat ditiup!</p>
+                
+                <div class="candle-wrapper" id="candleWrapper" onclick="blowCandle()">
+                    <div class="candle-flame" id="candleFlame"></div>
+                    <div class="candle-stick"></div>
+                </div>
+
+                <div id="giftContainer" class="gift-container hidden" style="margin-top:2rem; animation: floatCapsule 3s infinite ease-in-out;">
+                    <div style="font-size: 5rem; line-height: 1;">🧸💐</div>
+                    <p style="font-size: 1.5rem; color: var(--pink); font-family: var(--font-script); margin-top: 1rem; text-shadow: 1px 1px 4px rgba(0,0,0,0.2);">A virtual hug and flowers just for you!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- BRIDGE 2: BEFORE FLIP CARDS -->
+        <section class="scroll-section bridge-section" data-delay="4500">
+            <div class="bridge-text reveal">
+                But before we go any further...<br>
+                Let's take a little walk down memory lane, shall we? <span class="emoji-pop">💭✨</span>
+            </div>
+        </section>
+
+        <!-- SECTION 4.1: MEMORY FLIP CARDS (NEW MOMENTS SECTION) -->
+        <section class="scroll-section flip-section" id="section-flip" data-require="flip">
+            <div class="flip-content reveal">
+                <h2>Tebak Kenangan <span class="emoji-pop">🃏</span></h2>
+                <p>Coba tap kartu-kartu di bawah ini buat nge-flip memori kita!</p>
+                <div class="flip-container">
+                    <!-- Card 1 -->
+                    <div class="flip-card" onclick="flipCard(this)">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span>1</span>
+                            </div>
+                            <div class="flip-card-back" style="background:var(--grad-love);">
+                                <span class="emoji-pop" style="font-size:4rem">😂</span>
+                                <p>Hari Paling Ngakak</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="flip-card" onclick="flipCard(this)">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span>2</span>
+                            </div>
+                            <div class="flip-card-back" style="background:#ffb3d9; color:#333;">
+                                <span class="emoji-pop" style="font-size:4rem">🍝</span>
+                                <p>Makan Bareng Pertama</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="flip-card" onclick="flipCard(this)">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <span>3</span>
+                            </div>
+                            <div class="flip-card-back" style="background:#c084fc;">
+                                <span class="emoji-pop" style="font-size:4rem">🥺</span>
+                                <p>Deep Talk Subuh</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4.3: SCRATCH CARD -->
+        <section class="scroll-section scratch-section" id="section-scratch" data-require="scratch">
+            <div class="scratch-content reveal">
+                <h2>Pesan Rahasia <span class="emoji-pop">🎫</span></h2>
+                <p>Gosok areanya buat lihat pesan rahasianya!</p>
+                <div class="scratch-card-container large-scratch">
+                    <div class="scratch-secret">
+                        <p>Thank you for everything, Lily! ❤️<br>You are amazing!</p>
+                    </div>
+                    <canvas id="scratchCanvas"></canvas>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5: EMOTIONAL BUILDUP -->
+        <section class="scroll-section buildup-section" id="section-buildup" data-require="buildup">
+            <div class="buildup-content reveal">
+                <div id="buildupTriggerContainer" style="display: flex; flex-direction: column; align-items: center; gap: 2rem;">
+                    <p style="color: #fff; font-size: clamp(1.5rem, 4vw, 2.5rem); font-family: var(--font-serif); font-style: italic;">Did you know what I'm most grateful for?</p>
+                    <button class="btn" onclick="startBuildup()">Tell Me ✨</button>
+                </div>
+                <h2 id="buildupText" class="buildup-text" style="display: none;"></h2>
+            </div>
+        </section>
+
+        <!-- SECTION 6: EMOTIONAL LETTER -->
+        <section class="scroll-section letter-section" data-delay="5000">
+            <div class="letter-reveal-text reveal" style="text-align: center; margin-bottom: 3rem;">
+                <p style="font-family: var(--font-script); font-size: 3rem; color: var(--pink-light); text-shadow: 1px 1px 4px rgba(0,0,0,0.3);">This is a little message from me...</p>
+            </div>
+            
+            <div class="letter-paper reveal delay-1">
+                <div class="letter-header">
+                    <span class="letter-date">Hari Spesialmu <span class="emoji-pop">🎂</span></span>
+                    <div class="letter-decoration"><span class="emoji-pop">🌸</span></div>
+                </div>
+                <div class="letter-body" style="position:relative;">
+                    <div class="sticker sticker-1" style="position:absolute; top:-40px; left:-40px; font-size:4rem; transform:rotate(-15deg); z-index: 10;">🎀</div>
+                    <div class="sticker sticker-2" style="position:absolute; bottom:-30px; right:-40px; font-size:4.5rem; transform:rotate(10deg); z-index: 10;">🧸</div>
+                    <div class="sticker sticker-3" style="position:absolute; top:40%; right:-50px; font-size:3rem; transform:rotate(25deg); z-index: 10;">💌</div>
+                    
+                    <p>My Dearest Lily,</p>
+                    <p>Happy birthday to the most precious person I know! Has it really been that long since we first met? Time flies so fast, yet every single year, I find myself thanking the universe that you're still here, being the best friend I could ever ask for. You always listen to my endless stories, and your presence alone makes everything feel warmer and safer.</p>
+                    <p>You need to know how genuinely rare you are. Everyone who gets to be a part of your life is insanely lucky, but I consider myself the luckiest. You are so breathtakingly beautiful—inside and out—that I'm pretty sure even Aphrodite, the goddess of beauty herself, would feel shy and insecure if she ever stood next to you. <span class="emoji-pop">🥺💖</span></p>
+                    <p>I want you to know how deeply I cherish you. You deserve every ounce of love, peace, and happiness this world has to offer. On your special day, I hope you realize how much light you bring into the lives of those around you. Please, never feel like you're alone, because I will always be right here in your corner, cheering for you, supporting you, and celebrating you no matter what.</p>
+                    <p>Keep shining, my beautiful Lily. The world is so much better with you in it.</p>
+                    <p class="letter-closing">With all my love,<br><span class="emoji-pop">❤️</span> Your Best Friend <span class="emoji-pop">❤️</span></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7: SHAREABLE CARD -->
+        <section class="scroll-section card-section" id="section-card" data-delay="4000" style="background: var(--grad-bg); text-align: center; padding: 5rem 2rem;">
+            <div class="card-content reveal">
+                <h2 style="font-family: var(--font-serif); font-size: 3rem; color: var(--pink); margin-bottom: 1rem;">Kartu Spesialmu <span class="emoji-pop">📸</span></h2>
+                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">Generate kartu kenangan ulang tahun ini buat kamu simpan atau share!</p>
+                
+                <button class="btn" onclick="generateCard()" id="btnGenerateCard">Generate Your Card ✨</button>
+                
+                <div id="shareableCard" class="hidden" style="margin-top: 3rem; display: flex; justify-content: center; opacity: 0; transition: opacity 1s, transform 1s; transform: translateY(20px);">
+                    <div class="polaroid" style="margin: 0; transform: rotate(0deg); max-width: 400px; padding: 20px 20px 30px;">
+                        <!-- Ganti URL ini dengan foto asli Lily nantinya -->
+                        <div class="polaroid-img" style="background: url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=500&q=80') center/cover; aspect-ratio: 4/5;"></div>
+                        <div class="polaroid-cap" style="font-size: 1.4rem; line-height: 1.4; margin-top: 15px;">
+                            "This is my special day ever!"<br>
+                            <span style="display: block; font-size: 1rem; color: #777; margin-top: 5px;">🎵 The 1975 - About You</span>
+                            <span style="display: block; font-size: 0.95rem; font-family: var(--font-sans); font-weight: 400; color: #555; margin-top: 10px;">A day full of love, laughter, and endless blessings. Happy birthday to me! 🤍</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 8: FINAL GOODBYE -->
+        <section class="scroll-section final-section" data-delay="3000">
+            <div class="final-words reveal">
+                <p class="final-text">see you in another great day</p>
+                <p class="final-text highlight-end">my beloved friend.</p>
+                <span class="final-emoji emoji-pop">✨🌷💖</span>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ===== MINI MUSIC PLAYER (persistent) ===== -->
+    <div class="mini-player" id="miniPlayer">
+        <div class="mini-player-info">
+            <span class="mini-player-icon" id="miniPlayerIcon">🎵</span>
+            <div class="mini-player-text">
+                <span class="mini-player-title">About You</span>
+                <span class="mini-player-artist">The 1975</span>
+            </div>
+        </div>
+        <div class="mini-player-controls">
+            <button class="mini-btn" id="miniPlayPause" onclick="toggleMusic()">⏸</button>
+            <input type="range" class="mini-volume" min="0" max="100" value="70" onchange="changeVolume(this.value)" oninput="changeVolume(this.value)">
+        </div>
+    </div>
+    
+    <!-- Hidden YT Player -->
+    <div id="ytApiPlayer"></div>
 
     <script src="script.js"></script>
 </body>
-
 </html>
