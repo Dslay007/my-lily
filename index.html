@@ -8,7 +8,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:ital,wght@0,600;1,500&family=Quicksand:wght@400;600;700&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css?v=2">
     <!-- YouTube IFrame API -->
     <script src="https://www.youtube.com/iframe_api"></script>
 </head>
@@ -215,39 +215,58 @@
                         💌</div>
 
                     <p>My Dearest Lily,</p>
-                    <p>Happy birthday to the most extraordinary soul I have ever known. I look back at the days before you became a part of my life, and I honestly cannot imagine how I navigated the world without you. You are the kind of person who makes the heavy days feel a little lighter just by being there. Your kindness, your endless patience, and the way you always know exactly what to say when I need comfort are gifts I treasure more than words can express.</p>
-                    <p>You need to know how genuinely rare and beautiful you are, inside and out. Your presence is like a warm embrace, radiating a light that touches everyone around you. I am endlessly grateful that out of all the people in the universe, I get to call you my best friend. You are a true blessing, a masterpiece of a human being, and I want to spend the rest of my days reminding you of how deeply cherished you are.</p>
-                    <p>May this new chapter of your life bring you every ounce of joy, peace, and success you so richly deserve. Promise me you will never forget your worth, and promise me you will never feel alone. I will always be right here standing by your side, cheering the loudest for you, catching you if you stumble, and celebrating every single victory.</p>
-                    <p>Keep shining, my beautiful Lily. The world is immeasurably better because you are in it.</p>
-                    <p class="letter-closing">With all my love and endless appreciation,<br><span class="emoji-pop">❤️</span> Your Best Friend
+                    <p>Happy birthday to the most precious person I know! Has it really been that long since we first
+                        met? Time flies so fast, yet every single year, I find myself thanking the universe that you're
+                        still here, being the best friend I could ever ask for. You always listen to my endless stories,
+                        and your presence alone makes everything feel warmer and safer.</p>
+                    <p>You need to know how genuinely rare you are. Everyone who gets to be a part of your life is
+                        insanely lucky, but I consider myself the luckiest. You are so breathtakingly beautiful inside
+                        and out, that I'm pretty sure even Aphrodite, the goddess of beauty herself, would feel shy and
+                        insecure if she ever stood next to you. <span class="emoji-pop">🥺💖</span></p>
+                    <p>I want you to know how deeply I cherish you. You deserve every ounce of love, peace, and
+                        happiness this world has to offer. On your special day, I hope you realize how much light you
+                        bring into the lives of those around you. Please, never feel like you're alone, because I will
+                        always be right here in your corner, cheering for you, supporting you, and celebrating you no
+                        matter what.</p>
+                    <p>Keep shining, my beautiful Lily. The world is so much better with you in it.</p>
+                    <p class="letter-closing">With all my love,<br><span class="emoji-pop">❤️</span> Your Best Friend
                         <span class="emoji-pop">❤️</span></p>
                 </div>
             </div>
         </section>
 
-        <!-- SECTION 7: SHAREABLE CARD -->
-        <section class="scroll-section card-section" id="section-card" data-no-lock="true"
-            style="background: var(--grad-bg); text-align: center; padding: 5rem 2rem;">
-            <div class="card-content reveal">
-                <h2 style="font-family: var(--font-serif); font-size: 3rem; color: var(--pink); margin-bottom: 1rem;">
-                    Your Special Card <span class="emoji-pop">📸</span></h2>
-                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 2rem;">This is your card Lily, I made it special for you if you want to share!</p>
+        <!-- SECTION 7: BIRTHDAY WISHES WALL -->
+        <section class="scroll-section wishes-section" data-no-lock="true"
+            style="background: var(--bg1); text-align: center; padding: 5rem 2rem; min-height: 80vh;">
+            <div class="wishes-content reveal">
+                <h2 style="font-family: var(--font-serif); font-size: 3rem; color: var(--pink); margin-bottom: 0.5rem;">
+                    Birthday Wishes For You <span class="emoji-pop">🌷</span></h2>
+                <p style="color: var(--text-muted); font-size: 1.2rem; margin-bottom: 3rem;">Little notes from my heart to yours</p>
                 
-                <div id="shareableCard" style="margin-top: 3rem; display: flex; flex-direction: column; align-items: center;">
-                    <div class="horizontal-card">
-                        <div class="horizontal-card-img" style="background-image: url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?w=500&q=80');"></div>
-                        <div class="horizontal-card-content">
-                            <h3 style="font-family: var(--font-script); font-size: 2.2rem; color: #333; margin-bottom: 10px;">"This is my special day ever!"</h3>
-                            <p style="font-size: 1.1rem; color: #555; line-height: 1.5; margin-bottom: 15px;">A day full of love, laughter, and endless blessings. Happy birthday to me! 🤍</p>
-                            
-                            <div class="song-badge">
-                                <span style="font-size: 1.5rem;">🎵</span>
-                                <div style="display: flex; flex-direction: column; text-align: left;">
-                                    <span style="font-size: 0.9rem; font-weight: bold; color: #333;">About You</span>
-                                    <span style="font-size: 0.8rem; color: #777;">The 1975</span>
-                                </div>
-                            </div>
-                        </div>
+                <div class="wishes-wall" id="wishesWall">
+                    <div class="wish-note" style="--note-color: #fff0f5; --note-rotate: -3deg; animation-delay: 0s;">
+                        <span class="wish-emoji">🌸</span>
+                        <p>May every morning greet you with a smile as warm as yours.</p>
+                    </div>
+                    <div class="wish-note" style="--note-color: #f0f0ff; --note-rotate: 2deg; animation-delay: 0.15s;">
+                        <span class="wish-emoji">✨</span>
+                        <p>I hope this year brings you everything your beautiful heart deserves.</p>
+                    </div>
+                    <div class="wish-note" style="--note-color: #fff5e6; --note-rotate: -1deg; animation-delay: 0.3s;">
+                        <span class="wish-emoji">🧸</span>
+                        <p>Never stop being you, because "you" is the most wonderful thing in the world.</p>
+                    </div>
+                    <div class="wish-note" style="--note-color: #f5f0ff; --note-rotate: 3deg; animation-delay: 0.45s;">
+                        <span class="wish-emoji">💫</span>
+                        <p>I wish you endless laughter, the kind that makes your stomach hurt and your eyes tear up.</p>
+                    </div>
+                    <div class="wish-note" style="--note-color: #ffe8ec; --note-rotate: -2deg; animation-delay: 0.6s;">
+                        <span class="wish-emoji">🌙</span>
+                        <p>May you always feel loved, even on the days when the world feels heavy.</p>
+                    </div>
+                    <div class="wish-note" style="--note-color: #e8fff0; --note-rotate: 1deg; animation-delay: 0.75s;">
+                        <span class="wish-emoji">🎀</span>
+                        <p>Here's to another year of us being inseparable. I wouldn't have it any other way.</p>
                     </div>
                 </div>
             </div>

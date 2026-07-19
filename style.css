@@ -202,21 +202,56 @@ body.locked #mainContent { overflow-y: hidden; }
 .polaroid:hover { transform: scale(1.05) rotate(0deg); z-index: 10; box-shadow: 0 15px 40px rgba(0,0,0,0.7); }
 .polaroid-img { width: 100%; aspect-ratio: 1; background: var(--grad-love); display: flex; align-items: center; justify-content: center; font-size: 8rem; margin-bottom: 25px; border-radius: 6px; }
 
-/* HORIZONTAL SHARE CARD */
-.horizontal-card { background: #fff; border-radius: 15px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); display: flex; flex-direction: row; align-items: stretch; max-width: 650px; margin: 0 auto; overflow: hidden; text-align: left; width: 100%; position: relative; transition: transform 0.4s ease, box-shadow 0.4s ease; }
-.horizontal-card::before { content: ''; position: absolute; top: 0; left: -100%; width: 50%; height: 100%; background: linear-gradient(to right, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%); transform: skewX(-20deg); transition: left 0.7s ease; z-index: 10; pointer-events: none; }
-.horizontal-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 25px 50px rgba(0,0,0,0.4); }
-.horizontal-card:hover::before { left: 200%; }
-.horizontal-card-img { width: 280px; min-height: 250px; background-position: center; background-size: cover; flex-shrink: 0; }
-.horizontal-card-content { padding: 30px; flex: 1; display: flex; flex-direction: column; justify-content: center; }
-.song-badge { display: flex; align-items: center; gap: 10px; margin-top: 10px; background: #f0f0f0; padding: 8px 15px; border-radius: 10px; width: fit-content; }
+/* WISHES WALL */
+.wishes-wall {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+.wish-note {
+    background: var(--note-color, #fff);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    position: relative;
+    transform: rotate(var(--note-rotate, 0deg));
+    transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s;
+    opacity: 0;
+    animation: floatIn 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+}
+.wish-note:hover {
+    transform: rotate(0deg) scale(1.05) translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    z-index: 10;
+}
+.wish-emoji {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+}
+.wish-note p {
+    font-family: var(--font-primary);
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.5;
+    margin: 0;
+}
 
-@media (max-width: 600px) {
-    .horizontal-card { flex-direction: column; }
-    .horizontal-card-img { width: 100%; height: 250px; }
-    .horizontal-card-content { align-items: center; text-align: center; }
-    .share-btn, .song-badge { align-self: center; }
-    .song-badge { text-align: left; }
+@keyframes floatIn {
+    from { opacity: 0; transform: translateY(50px) rotate(calc(var(--note-rotate) * 2)); }
+    to { opacity: 1; transform: translateY(0) rotate(var(--note-rotate)); }
+}
+
+/* Hide YouTube Player securely without zero-sizing it */
+#ytApiPlayer {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+    opacity: 0.01;
+    pointer-events: none;
 }
 
 .polaroid-cap { color: #333; font-family: var(--font-script); font-size: 2.2rem; text-align: center; font-weight: 700; }

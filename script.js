@@ -432,7 +432,7 @@ function typewriteBuildup() {
     if (buildupStarted) return;
     buildupStarted = true;
     const el = document.getElementById('buildupText');
-    const text = "Out of all the beautiful things in this world...\n\nthe one I am most incredibly grateful for...\n\n\nis knowing you.";
+    const text = "Out of all the beautiful things in this world...\n\nthe one I am most incredibly grateful for...\n\nis knowing you.";
     let i = 0;
     el.innerHTML = '';
     const baseSpeed = 70;
@@ -530,7 +530,8 @@ let ytReady = false;
 
 function onYouTubeIframeAPIReady() {
     ytPlayer = new YT.Player('ytApiPlayer', {
-        height: '0', width: '0',
+        host: 'https://www.youtube-nocookie.com',
+        height: '10', width: '10',
         videoId: 'Ex7xvJV9xFc', // The 1975 - About You (Lyrics)
         playerVars: { 
             'autoplay': 0, 
