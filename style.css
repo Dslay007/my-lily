@@ -422,4 +422,15 @@ body.locked #mainContent { overflow-y: hidden; }
     .polaroid-img { font-size: 4rem; margin-bottom: 15px; }
     .polaroid-cap { font-size: 1.4rem; }
     .scroll-section { padding: 3rem 1.5rem; }
+    .buildup-text { font-size: 1.3rem; }
+    .scroll-text { font-size: 1.5rem; }
+    
+    .wishes-wall { grid-template-columns: 1fr; gap: 1.5rem; }
+    .wish-note { padding: 1.5rem; transform: rotate(0deg) !important; animation-name: fadeInMobile; }
+    .wish-note:hover { transform: translateY(-5px) !important; }
+}
+
+@keyframes fadeInMobile {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
 }
